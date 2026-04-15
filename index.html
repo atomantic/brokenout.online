@@ -69,16 +69,6 @@
   </div>
 </header>
 
-<!-- ======================= DEMO CONTROLS ======================= -->
-<div class="demo-bar" id="demoBar" data-running="false">
-  <button class="demo-btn primary" id="demoToggleBtn" type="button" aria-label="Start guided tour">
-    <svg class="demo-icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
-    <svg class="demo-icon-stop" viewBox="0 0 24 24" hidden><path d="M6 6h12v12H6z" fill="currentColor"/></svg>
-    <span class="demo-btn-label">Start Guided Tour</span>
-  </button>
-  <div class="demo-progress" id="demoProgress"><div class="demo-progress-fill"></div></div>
-  <span class="demo-step" id="demoStep"></span>
-</div>
 
 <!-- Spotlight overlay -->
 <div class="spotlight-layer" id="spotlight" hidden>
@@ -95,6 +85,18 @@
 
   <!-- LEFT COLUMN -->
   <aside class="col-left">
+    <section class="card tour-card" id="demoBar" data-running="false">
+      <h4>Take the Tour</h4>
+      <p class="tour-blurb">A 60-second walkthrough of the satire.</p>
+      <button class="demo-btn primary" id="demoToggleBtn" type="button" aria-label="Start guided tour">
+        <svg class="demo-icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        <svg class="demo-icon-stop" viewBox="0 0 24 24" hidden><path d="M6 6h12v12H6z" fill="currentColor"/></svg>
+        <span class="demo-btn-label">Start Guided Tour</span>
+      </button>
+      <div class="demo-progress" id="demoProgress"><div class="demo-progress-fill"></div></div>
+      <span class="demo-step" id="demoStep"></span>
+    </section>
+
     <section class="card profile-card" data-tour="profile-card">
       <div class="cover"></div>
       <img class="avatar-lg" src="https://i.pravatar.cc/200?img=58" alt=""/>
@@ -282,10 +284,6 @@
         <li>
           <strong>Early retirees: median cortisol down 43%</strong>
           <small>1d · 6,990 readers</small>
-        </li>
-        <li>
-          <strong>The "garden tomato" phase: a field guide</strong>
-          <small>2d · 3,201 readers · Sponsored by nothing</small>
         </li>
       </ul>
     </section>
