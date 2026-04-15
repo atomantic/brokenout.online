@@ -329,10 +329,14 @@ function endTour(finished) {
   }
 }
 
+let signupModalShown = false;
+
 function openSignupModal() {
   const modal = document.getElementById('signupModal');
   if (!modal) return;
   modal.hidden = false;
+  signupModalShown = true;
+  stopIdleWatcher();
   // Focus the email input for quick typing (after the pop-in animation)
   setTimeout(() => modal.querySelector('input[type="email"]')?.focus(), 240);
 }
@@ -349,6 +353,48 @@ document.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeSignupModal();
 });
+
+// ============ IDLE SIGNUP PROMPT ============
+// If the visitor sits still for a while, pop the signup modal.
+// Skips if the tour is running or the modal has already been shown,
+// and respects a 7-day cooldown per browser.
+const IDLE_MS = 45000;
+const IDLE_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000;
+const IDLE_KEY = 'brokenout_signup_seen_at';
+let idleTimer = null;
+
+function recentlySeen() {
+  try {
+    const t = parseInt(window.localStorage.getItem(IDLE_KEY) || '0', 10);
+    return t && (Date.now() - t) < IDLE_COOLDOWN_MS;
+  } catch (e) { return false; }
+}
+
+function markSeen() {
+  try { window.localStorage.setItem(IDLE_KEY, String(Date.now())); } catch (e) {}
+}
+
+function resetIdleTimer() {
+  if (signupModalShown || tourRunning) return;
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => {
+    if (signupModalShown || tourRunning) return;
+    markSeen();
+    openSignupModal();
+  }, IDLE_MS);
+}
+
+function stopIdleWatcher() {
+  clearTimeout(idleTimer);
+  idleTimer = null;
+}
+
+if (!recentlySeen()) {
+  ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart', 'wheel'].forEach(evt => {
+    window.addEventListener(evt, resetIdleTimer, { passive: true });
+  });
+  resetIdleTimer();
+}
 
 function onToggle() {
   if (tourRunning) endTour(false);
