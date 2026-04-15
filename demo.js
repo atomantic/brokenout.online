@@ -16,7 +16,7 @@ const TOUR = [
     title: "Welcome to BrokenOut",
     body: "The social network for people who've been laid off, restructured out, or blissfully retired. It's LinkedIn, but honest.",
     pos: 'bottom',
-    hold: 4200,
+    hold: 2800,
   },
   {
     route: 'home',
@@ -24,7 +24,7 @@ const TOUR = [
     title: "Your broken-out profile",
     body: "Track your severance tier, days of freedom, and status. (Dana's at 47 days and counting.)",
     pos: 'right',
-    hold: 4200,
+    hold: 2800,
   },
   {
     route: 'home',
@@ -32,7 +32,7 @@ const TOUR = [
     title: "Broken Out From",
     body: "A résumé of every company that let you go — so you don't have to keep updating LinkedIn's 'experience' section in shame.",
     pos: 'right',
-    hold: 4200,
+    hold: 2800,
   },
   {
     route: 'home',
@@ -40,7 +40,7 @@ const TOUR = [
     title: "Vent, share, announce",
     body: "Post a layoff story, a recipe, a rant, or a tomato photo. We validate all forms of grief-content.",
     pos: 'bottom',
-    hold: 4200,
+    hold: 2800,
   },
   {
     route: 'home',
@@ -49,7 +49,7 @@ const TOUR = [
     body: "Posts from people who get it. No 'thrilled to announce' energy here.",
     pos: 'left',
     scrollTo: true,
-    hold: 4500,
+    hold: 3000,
   },
   {
     route: 'home',
@@ -57,17 +57,8 @@ const TOUR = [
     title: "Relate, don't like",
     body: "We renamed Like to 'Relate', Comment to 'Commiserate', and Share to 'Amplify'. Watch —",
     pos: 'top',
-    action: (el) => { setTimeout(() => ghostClick(el), 500); },
-    hold: 3800,
-  },
-  {
-    route: 'home',
-    target: '[data-tour="promo"]',
-    title: "BrokenOut Premium™",
-    body: "Severance calculator, unlimited anonymous vents, and an AI coach that doesn't ask about your 5-year plan.",
-    pos: 'left',
-    scrollTo: true,
-    hold: 4200,
+    action: (el) => { setTimeout(() => ghostClick(el), 400); },
+    hold: 2600,
   },
   {
     route: 'network',
@@ -75,7 +66,7 @@ const TOUR = [
     title: "Commiserations, not connections",
     body: "Grow your network the right way: with people who also got the 'strategic realignment' email.",
     pos: 'bottom',
-    hold: 4000,
+    hold: 2600,
   },
   {
     route: 'network',
@@ -83,8 +74,8 @@ const TOUR = [
     title: "Share the grief",
     body: "One click and you're officially commiserating. It's more bonding than 'Connect' ever was.",
     pos: 'right',
-    action: (el) => { setTimeout(() => ghostClick(el), 500); },
-    hold: 3500,
+    action: (el) => { setTimeout(() => ghostClick(el), 400); },
+    hold: 2400,
   },
   {
     route: 'jobs',
@@ -92,7 +83,7 @@ const TOUR = [
     title: "Opportunities (eventually)",
     body: "Curated, human listings. No rockstar ninjas, no 'family' vibes, no 10x warriors. Just jobs.",
     pos: 'bottom',
-    hold: 4000,
+    hold: 2600,
   },
   {
     route: 'jobs',
@@ -100,8 +91,8 @@ const TOUR = [
     title: "One-click apply",
     body: "Because the 47-field application form was part of what broke us in the first place.",
     pos: 'left',
-    action: (el) => { setTimeout(() => ghostClick(el), 500); },
-    hold: 3800,
+    action: (el) => { setTimeout(() => ghostClick(el), 400); },
+    hold: 2600,
   },
   {
     route: 'messages',
@@ -109,7 +100,7 @@ const TOUR = [
     title: "Vent Mail",
     body: "Direct messages with built-in empathy. No recruiter spam — we block 'synergy' automatically.",
     pos: 'bottom',
-    hold: 3800,
+    hold: 2600,
   },
   {
     route: 'messages',
@@ -119,10 +110,10 @@ const TOUR = [
     pos: 'top',
     action: async (el) => {
       await typeInto(el, "tempted to pivot to pottery tbh");
-      await delay(400);
+      await delay(300);
       ghostClick(document.getElementById('msgSendBtn'));
     },
-    hold: 4500,
+    hold: 3000,
   },
   {
     route: 'profile',
@@ -131,7 +122,7 @@ const TOUR = [
     body: "The full profile: your Breakup Story, your experience (until recently), and skills that didn't save you.",
     pos: 'right',
     scrollTo: true,
-    hold: 4500,
+    hold: 3000,
   },
   {
     route: 'profile',
@@ -140,15 +131,16 @@ const TOUR = [
     body: "Every role ends with *why* it ended. 'Restructured out of relevance' is the new 'pursuing new opportunities.'",
     pos: 'right',
     scrollTo: true,
-    hold: 4500,
+    hold: 3000,
   },
   {
     route: 'home',
-    target: '.brand',
-    title: "That's BrokenOut.",
-    body: "A place that meets people where they actually are. Ready to get broken out together?",
-    pos: 'bottom',
-    hold: 4500,
+    target: '[data-tour="promo"]',
+    title: "Get on the waitlist",
+    body: "This whole thing is a demo of a site we're actually building. Drop your email and we'll ping you when the doors open.",
+    pos: 'left',
+    scrollTo: true,
+    hold: 5200,
   },
 ];
 
