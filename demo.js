@@ -354,6 +354,32 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeSignupModal();
 });
 
+// Lets app.js (or the tour) nudge the visitor toward the waitlist from
+// any "not wired" interaction.
+document.addEventListener('brokenout:signup-prompt', openSignupModal);
+
+// Global catch-all: clicking any control that isn't in this allowlist
+// pops the signup modal instead of doing nothing / showing a demo toast.
+// Navigation, tour controls, and the signup form itself still work.
+const SIGNUP_ALLOW = [
+  '[data-route]',           // nav links + brand
+  '#demoToggleBtn',         // tour toggle
+  '[data-signup-dismiss]',  // modal close targets
+  '.signup-modal',          // modal + form inside
+  '.waitlist-form',         // sidebar waitlist form + its input/submit
+].join(',');
+
+document.addEventListener('click', (e) => {
+  if (tourRunning) return;
+  if (e.target.closest(SIGNUP_ALLOW)) return;
+  const clickable = e.target.closest('a, button, [role="button"]');
+  if (!clickable) return;
+  e.preventDefault();
+  e.stopPropagation();
+  markSeen();
+  openSignupModal();
+}, true);
+
 // ============ IDLE SIGNUP PROMPT ============
 // If the visitor sits still for a while, pop the signup modal.
 // Skips if the tour is running or the modal has already been shown,
