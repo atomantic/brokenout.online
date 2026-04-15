@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#b42318" />
+<title>BrokenOut — The Professional Network for the Professionally Broken</title>
+<meta name="description" content="LinkedIn for people who got laid off, restructured, or blissfully retired. Honest career commiseration, severance tips, and the garden-tomato phase. Join the waitlist." />
+<link rel="canonical" href="https://brokenout.online/" />
+<meta property="og:title" content="BrokenOut — The Professional Network for the Professionally Broken" />
+<meta property="og:description" content="LinkedIn, but honest. For people who've been laid off, restructured out, or blissfully retired. Join the waitlist." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://brokenout.online/" />
+<meta property="og:image" content="https://brokenout.online/home-initial.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="BrokenOut — The Professional Network for the Professionally Broken" />
+<meta name="twitter:description" content="LinkedIn, but honest. For people who've been laid off, restructured out, or blissfully retired." />
+<meta name="twitter:image" content="https://brokenout.online/home-initial.png" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script async src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+</head>
+<body>
+
+<!-- ======================= TOP NAV ======================= -->
+<header class="topnav" id="topnav">
+  <div class="topnav-inner">
+    <a class="brand" href="#home" data-route="home">
+      <svg class="brand-logo" viewBox="0 0 40 40" aria-hidden="true">
+        <rect x="2" y="2" width="36" height="36" rx="6" fill="#b42318"/>
+        <path d="M10 12h7a6 6 0 0 1 0 12h-7z M10 22h8a6 6 0 0 1 0 12h-8z" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round" transform="translate(3,-4) rotate(-6 20 20)"/>
+        <path d="M12 8 L14 20 L9 22 L18 34" stroke="#ffd9a8" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-name">Broken<span class="brand-accent">Out</span></span>
+    </a>
+
+    <div class="search">
+      <svg viewBox="0 0 24 24" class="search-ic"><path d="M10 4a6 6 0 1 0 3.76 10.64l4.3 4.3 1.41-1.41-4.3-4.3A6 6 0 0 0 10 4m0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8z" fill="currentColor"/></svg>
+      <input id="searchInput" placeholder="Search ex-coworkers, severance tips, hobbies…"/>
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+      <a class="nav-link active" data-route="home" href="#home">
+        <svg viewBox="0 0 24 24"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z" fill="currentColor"/></svg>
+        <span>Home</span>
+      </a>
+      <a class="nav-link" data-route="network" href="#network">
+        <svg viewBox="0 0 24 24"><path d="M9 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8m0 2c-4 0-8 2-8 5v2h16v-2c0-3-4-5-8-5m8-9 2 2 4-4-1.4-1.4L19 5.2 18.4 4.6z" fill="currentColor"/></svg>
+        <span>Commiserations</span>
+      </a>
+      <a class="nav-link" data-route="jobs" href="#jobs">
+        <svg viewBox="0 0 24 24"><path d="M10 4h4a2 2 0 0 1 2 2v2h4a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2h4V6a2 2 0 0 1 2-2m0 4h4V6h-4z" fill="currentColor"/></svg>
+        <span>Opportunities</span>
+      </a>
+      <a class="nav-link" data-route="messages" href="#messages">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6l-4 4V6a2 2 0 0 1 2-2m0 4v2l8 5 8-5V8l-8 5z" fill="currentColor"/></svg>
+        <span>Vent Mail</span>
+        <em class="badge">3</em>
+      </a>
+      <a class="nav-link" data-route="notifications" href="#notifications">
+        <svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 0-2 2v1.1A7 7 0 0 0 5 12v5l-2 2v1h18v-1l-2-2v-5a7 7 0 0 0-5-6.9V4a2 2 0 0 0-2-2m0 20a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2" fill="currentColor"/></svg>
+        <span>Reality Checks</span>
+        <em class="badge">12</em>
+      </a>
+      <a class="nav-link me" data-route="profile" href="#profile">
+        <img class="avatar-sm" src="https://i.pravatar.cc/80?img=58" alt=""/>
+        <span>Me ▾</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ======================= DEMO CONTROLS ======================= -->
+<div class="demo-bar" id="demoBar">
+  <button class="demo-btn primary" id="startDemoBtn">
+    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+    Start Guided Tour
+  </button>
+  <button class="demo-btn ghost" id="pauseDemoBtn" hidden>
+    <svg viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z" fill="currentColor"/></svg>
+    Pause
+  </button>
+  <button class="demo-btn ghost" id="stopDemoBtn" hidden>
+    <svg viewBox="0 0 24 24"><path d="M6 6h12v12H6z" fill="currentColor"/></svg>
+    Stop
+  </button>
+  <div class="demo-progress" id="demoProgress"><div class="demo-progress-fill"></div></div>
+  <span class="demo-step" id="demoStep"></span>
+</div>
+
+<!-- Spotlight overlay -->
+<div class="spotlight-layer" id="spotlight" hidden>
+  <div class="spotlight-hole" id="spotHole"></div>
+  <div class="spotlight-caption" id="spotCaption">
+    <strong id="spotTitle">Welcome</strong>
+    <p id="spotBody">Let's take a quick tour.</p>
+  </div>
+  <div class="cursor" id="ghostCursor"></div>
+</div>
+
+<!-- ======================= MAIN LAYOUT ======================= -->
+<main class="layout">
+
+  <!-- LEFT COLUMN -->
+  <aside class="col-left">
+    <section class="card profile-card" data-tour="profile-card">
+      <div class="cover"></div>
+      <img class="avatar-lg" src="https://i.pravatar.cc/200?img=58" alt=""/>
+      <h3 class="p-name">Dana Rivers</h3>
+      <p class="p-tag">Formerly Principal Engineer @ <s>MegaCorp</s> · Currently reinventing self</p>
+      <p class="p-loc">Austin, TX · <span class="status-dot"></span> Available for commiseration</p>
+      <div class="p-stats">
+        <div><span>Severance Tier</span><strong>⭐⭐⭐⭐½</strong></div>
+        <div><span>Days Free</span><strong id="daysFreeCount">47</strong></div>
+      </div>
+    </section>
+
+    <section class="card small-card" data-tour="broken-from">
+      <h4>Broken Out From</h4>
+      <ul class="broken-list">
+        <li><span class="dot red"></span>MegaCorp · 2026</li>
+        <li><span class="dot amber"></span>Stealth Startup · 2024</li>
+        <li><span class="dot gray"></span>BigFinance Inc · 2021</li>
+      </ul>
+      <a class="muted-link" href="#">View 4 more closures →</a>
+    </section>
+
+    <section class="card small-card">
+      <h4>Groups You Left</h4>
+      <ul class="tags">
+        <li>🔥 Friday Pizza Committee</li>
+        <li>🤝 Q4 Rally Planning</li>
+        <li>🧘 Burnout Awareness (ironic)</li>
+      </ul>
+    </section>
+  </aside>
+
+  <!-- CENTER COLUMN -->
+  <section class="col-center">
+
+    <!-- FEED -->
+    <div class="route route-home active" data-route-view="home">
+
+      <div class="card composer" data-tour="composer">
+        <div class="composer-top">
+          <img class="avatar-sm" src="https://i.pravatar.cc/80?img=58" alt=""/>
+          <button class="composer-trigger">Share a layoff story, a rage, or a recipe…</button>
+        </div>
+        <div class="composer-actions">
+          <button><span>😭</span> Vent</button>
+          <button><span>📸</span> Memory</button>
+          <button><span>📝</span> Story</button>
+          <button><span>🎺</span> Announcement</button>
+        </div>
+      </div>
+
+      <div class="feed" id="feed" data-tour="feed">
+        <!-- Post template — populated by JS -->
+      </div>
+    </div>
+
+    <!-- NETWORK -->
+    <div class="route route-network" data-route-view="network" hidden>
+      <div class="card">
+        <h2 class="route-title">Commiserations</h2>
+        <p class="muted">People who understand exactly what you're going through.</p>
+      </div>
+      <div class="people-grid" id="peopleGrid"></div>
+    </div>
+
+    <!-- JOBS -->
+    <div class="route route-jobs" data-route-view="jobs" hidden>
+      <div class="card">
+        <h2 class="route-title">Opportunities (eventually)</h2>
+        <p class="muted">Listings curated by people who also got broken out. No "rockstar ninja" listings.</p>
+      </div>
+      <div class="jobs-list" id="jobsList"></div>
+    </div>
+
+    <!-- MESSAGES -->
+    <div class="route route-messages" data-route-view="messages" hidden>
+      <div class="card">
+        <h2 class="route-title">Vent Mail</h2>
+        <div class="messages-wrap">
+          <ul class="msg-list" id="msgList"></ul>
+          <div class="msg-view" id="msgView">
+            <div class="msg-head">
+              <img class="avatar-sm" src="https://i.pravatar.cc/80?img=47"/>
+              <div>
+                <strong>Priya Shah</strong>
+                <small>Ex-Senior PM · last message 2h ago</small>
+              </div>
+            </div>
+            <div class="msg-bubbles" id="msgBubbles"></div>
+            <div class="msg-compose">
+              <input id="msgInput" placeholder="Type to commiserate…"/>
+              <button id="msgSendBtn">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="route route-profile" data-route-view="profile" hidden>
+      <div class="card profile-full">
+        <div class="cover tall"></div>
+        <img class="avatar-xl" src="https://i.pravatar.cc/240?img=58" alt=""/>
+        <div class="pf-body">
+          <h1>Dana Rivers</h1>
+          <p class="p-tag">Principal-Level Human Being · Currently Figuring It Out</p>
+          <p class="p-loc">Austin, TX · <a href="#">174 commiserations</a></p>
+          <div class="pf-actions">
+            <button class="btn primary">Open to Lunch</button>
+            <button class="btn">Ask About Severance</button>
+            <button class="btn ghost">More ▾</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>The Breakup Story</h3>
+        <p class="story-body">After 9 years at MegaCorp, a forty-seven slide deck explained why my role
+          no longer "aligned with strategic initiatives." I received a branded water bottle and 12 weeks of pay.
+          On the bright side, I finally learned to make sourdough and can identify three species of local bird.</p>
+      </div>
+
+      <div class="card">
+        <h3>Experience (Until Recently)</h3>
+        <ul class="exp-list">
+          <li>
+            <div class="exp-logo">MC</div>
+            <div>
+              <strong>Principal Engineer · MegaCorp</strong>
+              <small>2017 — 2026 · "Restructured out of relevance"</small>
+              <p>Built systems that still outlive me at the org. Managed three platform teams through two reorgs.</p>
+            </div>
+          </li>
+          <li>
+            <div class="exp-logo alt">SS</div>
+            <div>
+              <strong>Staff Engineer · Stealth Startup</strong>
+              <small>2022 — 2024 · "Runway ended"</small>
+              <p>Helped launch an AI product that pivoted four times before running out of money.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Skills (That Didn't Save Me)</h3>
+        <div class="skills">
+          <span>Distributed Systems</span>
+          <span>Mentoring Juniors</span>
+          <span>Being In Meetings</span>
+          <span>Crying Professionally</span>
+          <span>Hackathons (Involuntary)</span>
+          <span>LinkedIn Humblebragging</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOTIFICATIONS -->
+    <div class="route route-notifications" data-route-view="notifications" hidden>
+      <div class="card">
+        <h2 class="route-title">Reality Checks</h2>
+        <ul class="notif-list" id="notifList"></ul>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- RIGHT COLUMN -->
+  <aside class="col-right">
+    <section class="card" data-tour="news">
+      <h4>BrokenOut News</h4>
+      <ul class="news-list">
+        <li>
+          <strong>MegaCorp layoffs hit wave 7</strong>
+          <small>2h · 14,302 readers · "Efficiency achieved"</small>
+        </li>
+        <li>
+          <strong>Severance negotiation 101</strong>
+          <small>5h · 8,110 readers · Top comment: "Ask for everything"</small>
+        </li>
+        <li>
+          <strong>LinkedIn removes "Open To Work" badge as redundant</strong>
+          <small>1d · 22,540 readers · Satire (we hope)</small>
+        </li>
+        <li>
+          <strong>Early retirees: median cortisol down 43%</strong>
+          <small>1d · 6,990 readers</small>
+        </li>
+        <li>
+          <strong>The "garden tomato" phase: a field guide</strong>
+          <small>2d · 3,201 readers · Sponsored by nothing</small>
+        </li>
+      </ul>
+    </section>
+
+    <section class="card promo" data-tour="promo">
+      <h4>Join the BrokenOut Waitlist</h4>
+      <p>This is a demo of a network we're actually building. Drop your email to get notified when we open the doors. No recruiter spam, no "synergy," no humblebrags.</p>
+      <form action="https://app.kit.com/forms/9328582/subscriptions"
+            class="seva-form formkit-form waitlist-form"
+            method="post"
+            data-sv-form="9328582"
+            data-uid="71dd26206a"
+            data-format="inline"
+            data-version="5">
+        <label class="sr-only" for="waitlist-email">Email</label>
+        <input id="waitlist-email"
+               class="formkit-input waitlist-input"
+               type="email"
+               name="email_address"
+               placeholder="you@ex-megacorp.com"
+               required
+               aria-label="Your email"/>
+        <button class="btn primary full formkit-submit" type="submit" data-element="submit">
+          <span>Notify me when it's real</span>
+        </button>
+      </form>
+      <small class="muted">*We'll email once. Maybe twice if we're feeling chatty.</small>
+    </section>
+
+    <section class="card">
+      <h4>Events Near You</h4>
+      <ul class="events-list">
+        <li>☕ Austin Unemployed Coffee · Sat 10am</li>
+        <li>🎨 Pivot-to-Pottery Meetup · Tue 6pm</li>
+        <li>🥾 Hike & Cry · Sun 8am</li>
+      </ul>
+    </section>
+  </aside>
+</main>
+
+<footer class="foot">
+  <span>BrokenOut · Finally a network that gets it ·</span>
+  <a href="#">About</a> <a href="#">Press</a> <a href="#">Therapy Partners</a> <a href="#">Accessibility</a>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast" hidden></div>
+
+<script src="app.js"></script>
+<script src="demo.js"></script>
+</body>
+</html>

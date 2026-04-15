@@ -1,0 +1,12 @@
+node_modules/
+videos/
+.playwright-mcp/
+.DS_Store
+*.log
+
+# Playwright / Kit setup artifacts
+kit-*.png
+waitlist-*.png
+brokenout-with-waitlist.png
+mobile-home.png
+mobile-network.png
