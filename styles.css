@@ -197,7 +197,7 @@ a { color: inherit; text-decoration: none; }
   gap: 20px;
   align-items: start;
 }
-.col-left, .col-right { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 116px; }
+.col-left, .col-right { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 72px; }
 .col-center { display: flex; flex-direction: column; gap: 12px; }
 
 /* ================= CARD ================= */
