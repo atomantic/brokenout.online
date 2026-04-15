@@ -375,9 +375,3 @@ window.addEventListener('scroll', () => {
 }, true);
 window.addEventListener('resize', refresh);
 
-// auto-start tour once page loads, after a short delay
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    if (!tourRunning) startTour();
-  }, 900);
-});
