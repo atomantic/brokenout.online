@@ -1,6 +1,6 @@
 # brokenout.online
 
-**BrokenOut — The Professional Network for the Professionally Broken.**
+**BrokenOut — The Professional Network for People Who Broke Out.**
 
 A static demo site for a LinkedIn parody aimed at people who've been laid off,
 restructured, or blissfully retired. It's LinkedIn, but honest.
