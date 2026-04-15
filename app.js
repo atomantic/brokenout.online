@@ -70,19 +70,23 @@ const POSTS = [
 ];
 
 const PEOPLE = [
-  { name: "Marcus Chen", avatar: "https://i.pravatar.cc/120?img=12", role: "Ex-VP Engineering · HexaCorp", reason: "Laid off same quarter" },
-  { name: "Priya Shah", avatar: "https://i.pravatar.cc/120?img=47", role: "Former Senior PM · MegaCorp", reason: "3 mutual ex-managers" },
-  { name: "Rafael Ortiz", avatar: "https://i.pravatar.cc/120?img=33", role: "Retired · Director of Data", reason: "Joined BrokenOut the same week" },
-  { name: "Jessica Park", avatar: "https://i.pravatar.cc/120?img=24", role: "Designer · Between gigs", reason: "Survived 4 reorgs with you" },
-  { name: "Tomás Beltrán", avatar: "https://i.pravatar.cc/120?img=65", role: "Ex-CTO · Failed startup", reason: "Worked at Stealth Startup" },
-  { name: "Ada Olsen", avatar: "https://i.pravatar.cc/120?img=41", role: "Early Retiree · Former CFO", reason: "Suggested by severance tier" },
+  { name: "Marcus Chen", avatar: "https://i.pravatar.cc/120?img=12", role: "Ex-VP Engineering · Walking 5am trails", reason: "Laid off same quarter · 6mo severance" },
+  { name: "Priya Shah", avatar: "https://i.pravatar.cc/120?img=47", role: "Former Senior PM · Currently in pajamas", reason: "3 mutual ex-managers" },
+  { name: "Rafael Ortiz", avatar: "https://i.pravatar.cc/120?img=33", role: "Retired · Runs the garden now", reason: "Joined BrokenOut the same week" },
+  { name: "Jessica Park", avatar: "https://i.pravatar.cc/120?img=24", role: "Designer · Open to UBI", reason: "Survived 4 reorgs with you" },
+  { name: "Tomás Beltrán", avatar: "https://i.pravatar.cc/120?img=65", role: "Ex-CTO · Writing a cookbook", reason: "Worked at Stealth Startup" },
+  { name: "Ada Olsen", avatar: "https://i.pravatar.cc/120?img=41", role: "Early retiree · Seeking pottery hobbies", reason: "Suggested by severance tier" },
 ];
 
+// Anti-work "opportunities": things to do with your severance-funded free
+// time — unemployment paperwork, UBI advocacy, hobbies, barter. Not jobs.
 const JOBS = [
-  { company: "Unsync", logo: "U", title: "Staff Engineer (Remote)", loc: "Remote · Full-time", tag: "No standups, ever", extra: "Posted by ex-MegaCorp alum" },
-  { company: "Gentle Labs", logo: "G", title: "Principal Designer", loc: "Austin, TX · Hybrid 2/wk", tag: "No 'rockstars'", extra: "Funded for 3 years — no pressure" },
-  { company: "Afterglow Co-op", logo: "A", title: "Whatever You're Good At", loc: "Remote · Co-op", tag: "Worker-owned", extra: "32-hr week, full benefits" },
-  { company: "Meadowbrook", logo: "M", title: "Part-Time Consultant", loc: "Remote · 15 hrs/wk", tag: "Retirees welcome", extra: "Paid actual respect" },
+  { company: "State of Texas · Benefits", logo: "💸", title: "Apply for Unemployment", loc: "Online · 30 minutes", tag: "No interview required", extra: "First 12 weeks, then extensions if you really try" },
+  { company: "Independent · Opinion column", logo: "✍️", title: "Write a Substack on UBI", loc: "From your porch", tag: "Voluntary cause", extra: "~2 hrs/week · grow a niche following" },
+  { company: "East Austin Clay Collective", logo: "🏺", title: "Apprentice at a Pottery Studio", loc: "3 mornings/wk · Free entry", tag: "Hobby track", extra: "You'll break a lot of mugs" },
+  { company: "Neighborhood Favor Economy", logo: "🥚", title: "Sit Chickens for the Neighbors", loc: "<2 miles · Flexible", tag: "Barter OK", extra: "Paid in eggs, occasionally cash" },
+  { company: "Self · Pay-what-you-can", logo: "🤝", title: "Coach Ex-Coworkers on Severance", loc: "Coffee shops · 1hr sessions", tag: "Pay it forward", extra: "You already won; help others negotiate theirs" },
+  { company: "Backyard · Seasonal", logo: "🍅", title: "Sell Heirloom Tomatoes at the Market", loc: "Saturdays · 4 hrs", tag: "Retirement gig", extra: "Break-even if you don't count labor" },
 ];
 
 const MESSAGES = [
@@ -104,7 +108,7 @@ const BUBBLES = [
 const NOTIFS = [
   { ico: "👋", text: "Marcus Chen viewed your profile", sub: "Probably reminiscing about the reorg" },
   { ico: "🤝", text: "Priya Shah sent you a commiseration request", sub: "3 mutual ex-managers" },
-  { ico: "📣", text: "BrokenOut just added 'Rage-Apply' — apply to 50 jobs in one click", sub: "Only for Premium members, 2h ago" },
+  { ico: "🌱", text: "New in Opportunities: a pottery apprenticeship near you", sub: "Sourdough track already at capacity" },
   { ico: "🎉", text: "You've been on BrokenOut for 47 days!", sub: "That's 47 more than most jobs last" },
   { ico: "💬", text: "Jessica Park commented on your post", sub: "\"This is too real\" — 4h ago" },
   { ico: "🛠", text: "Severance negotiation simulator beta is live", sub: "Try it before it tries you" },
@@ -218,16 +222,16 @@ function renderJobs() {
         <small>${j.extra}</small><br/>
         <span class="tag">${j.tag}</span>
       </div>
-      <button class="btn primary apply">Apply</button>
+      <button class="btn primary apply">I'm in</button>
     </div>
   `).join('');
 
   document.querySelectorAll('.job-card .apply').forEach((btn, i) => {
     btn.addEventListener('click', () => {
-      btn.textContent = '✓ Applied';
+      btn.textContent = '✓ Signed up';
       btn.disabled = true;
       btn.style.opacity = .7;
-      showToast(`Application sent to ${JOBS[i].company}`);
+      showToast(`Enrolled: ${JOBS[i].title}`);
     });
   });
 }
