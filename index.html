@@ -70,18 +70,11 @@
 </header>
 
 <!-- ======================= DEMO CONTROLS ======================= -->
-<div class="demo-bar" id="demoBar">
-  <button class="demo-btn primary" id="startDemoBtn">
-    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
-    Start Guided Tour
-  </button>
-  <button class="demo-btn ghost" id="pauseDemoBtn" hidden>
-    <svg viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z" fill="currentColor"/></svg>
-    Pause
-  </button>
-  <button class="demo-btn ghost" id="stopDemoBtn" hidden>
-    <svg viewBox="0 0 24 24"><path d="M6 6h12v12H6z" fill="currentColor"/></svg>
-    Stop
+<div class="demo-bar" id="demoBar" data-running="false">
+  <button class="demo-btn primary" id="demoToggleBtn" type="button" aria-label="Start guided tour">
+    <svg class="demo-icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+    <svg class="demo-icon-stop" viewBox="0 0 24 24" hidden><path d="M6 6h12v12H6z" fill="currentColor"/></svg>
+    <span class="demo-btn-label">Start Guided Tour</span>
   </button>
   <div class="demo-progress" id="demoProgress"><div class="demo-progress-fill"></div></div>
   <span class="demo-step" id="demoStep"></span>
@@ -340,6 +333,37 @@
 
 <!-- Toast -->
 <div class="toast" id="toast" hidden></div>
+
+<!-- End-of-tour signup modal -->
+<div class="signup-modal" id="signupModal" hidden role="dialog" aria-modal="true" aria-labelledby="signupModalTitle">
+  <div class="signup-modal-backdrop" data-signup-dismiss></div>
+  <div class="signup-modal-card">
+    <button class="signup-modal-close" type="button" aria-label="Close" data-signup-dismiss>&times;</button>
+    <img class="signup-modal-logo" src="logo.png" alt="" width="72" height="72"/>
+    <h3 id="signupModalTitle">Want in for real?</h3>
+    <p>This whole thing is a demo of a site we're actually building. Drop your email and we'll tell you when the doors open. No recruiter spam, no "synergy."</p>
+    <form action="https://app.kit.com/forms/9328582/subscriptions"
+          class="seva-form formkit-form waitlist-form"
+          method="post"
+          data-sv-form="9328582"
+          data-uid="71dd26206a"
+          data-format="inline"
+          data-version="5">
+      <label class="sr-only" for="signup-modal-email">Email</label>
+      <input id="signup-modal-email"
+             class="formkit-input waitlist-input"
+             type="email"
+             name="email_address"
+             placeholder="you@ex-megacorp.com"
+             required
+             aria-label="Your email"/>
+      <button class="btn primary full formkit-submit" type="submit" data-element="submit">
+        <span>Notify me when it's real</span>
+      </button>
+    </form>
+    <small class="muted">*We'll email once. Maybe twice if we're feeling chatty.</small>
+  </div>
+</div>
 
 <script src="app.js"></script>
 <script src="demo.js"></script>

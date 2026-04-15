@@ -147,7 +147,6 @@ const TOUR = [
 // ============ STATE ============
 let tourIdx = 0;
 let tourRunning = false;
-let tourPaused = false;
 let tourTimer = null;
 
 // ============ DOM REFS ============
@@ -157,9 +156,11 @@ const spotCap = document.getElementById('spotCaption');
 const spotTitle = document.getElementById('spotTitle');
 const spotBody = document.getElementById('spotBody');
 const cursor = document.getElementById('ghostCursor');
-const startBtn = document.getElementById('startDemoBtn');
-const pauseBtn = document.getElementById('pauseDemoBtn');
-const stopBtn = document.getElementById('stopDemoBtn');
+const demoBar = document.getElementById('demoBar');
+const toggleBtn = document.getElementById('demoToggleBtn');
+const toggleLabel = toggleBtn.querySelector('.demo-btn-label');
+const iconPlay = toggleBtn.querySelector('.demo-icon-play');
+const iconStop = toggleBtn.querySelector('.demo-icon-stop');
 const progressFill = document.querySelector('.demo-progress-fill');
 const stepLabel = document.getElementById('demoStep');
 
@@ -254,7 +255,6 @@ function clearHighlight() {
 // ============ TOUR ENGINE ============
 async function runStep() {
   if (!tourRunning) return;
-  if (tourPaused) return;
 
   if (tourIdx >= TOUR.length) {
     endTour(true);
@@ -302,52 +302,66 @@ async function runStep() {
   }, step.hold || 3500);
 }
 
+function setToggleMode(running) {
+  demoBar.dataset.running = running ? 'true' : 'false';
+  iconPlay.hidden = running;
+  iconStop.hidden = !running;
+  toggleLabel.textContent = running ? 'Stop Tour' : 'Start Guided Tour';
+  toggleBtn.setAttribute('aria-label', running ? 'Stop guided tour' : 'Start guided tour');
+}
+
 function startTour() {
   tourIdx = 0;
   tourRunning = true;
-  tourPaused = false;
-  startBtn.hidden = true;
-  pauseBtn.hidden = false;
-  stopBtn.hidden = false;
-  pauseBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z" fill="currentColor"/></svg> Pause`;
+  setToggleMode(true);
   runStep();
-}
-
-function togglePause() {
-  tourPaused = !tourPaused;
-  if (tourPaused) {
-    clearTimeout(tourTimer);
-    pauseBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg> Resume`;
-  } else {
-    pauseBtn.innerHTML = `<svg viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z" fill="currentColor"/></svg> Pause`;
-    runStep();
-  }
 }
 
 function endTour(finished) {
   tourRunning = false;
-  tourPaused = false;
   clearTimeout(tourTimer);
   clearHighlight();
-  startBtn.hidden = false;
-  pauseBtn.hidden = true;
-  stopBtn.hidden = true;
-  stepLabel.textContent = finished ? 'Tour complete — click Start to replay' : '';
-  progressFill.style.width = finished ? '100%' : '0%';
+  setToggleMode(false);
+  stepLabel.textContent = '';
+  progressFill.style.width = '0%';
   if (finished) {
-    window.__app.showToast("Tour complete — welcome to BrokenOut");
+    openSignupModal();
   }
 }
 
+function openSignupModal() {
+  const modal = document.getElementById('signupModal');
+  if (!modal) return;
+  modal.hidden = false;
+  // Focus the email input for quick typing (after the pop-in animation)
+  setTimeout(() => modal.querySelector('input[type="email"]')?.focus(), 240);
+}
+
+function closeSignupModal() {
+  const modal = document.getElementById('signupModal');
+  if (!modal) return;
+  modal.hidden = true;
+}
+
+document.addEventListener('click', (e) => {
+  if (e.target.matches('[data-signup-dismiss]')) closeSignupModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeSignupModal();
+});
+
+function onToggle() {
+  if (tourRunning) endTour(false);
+  else startTour();
+}
+
 // ============ WIRE UP ============
-startBtn.addEventListener('click', startTour);
-pauseBtn.addEventListener('click', togglePause);
-stopBtn.addEventListener('click', () => endTour(false));
+toggleBtn.addEventListener('click', onToggle);
 
 // Recompute spotlight/caption positions on scroll + resize
 let rafId = null;
 function refresh() {
-  if (!tourRunning || tourPaused) return;
+  if (!tourRunning) return;
   const step = TOUR[tourIdx];
   if (!step) return;
   const target = document.querySelector(step.target);

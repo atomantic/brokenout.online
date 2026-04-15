@@ -4,9 +4,11 @@ videos/
 .DS_Store
 *.log
 
-# Playwright / Kit setup artifacts
+# Playwright / Kit / DreamHost setup artifacts
 kit-*.png
 waitlist-*.png
 brokenout-with-waitlist.png
 mobile-home.png
 mobile-network.png
+dreamhost-*.png
+dns-*.png
