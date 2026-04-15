@@ -271,7 +271,9 @@ async function runStep() {
   }
 
   const target = document.querySelector(step.target);
-  if (!target) {
+  // Skip missing or hidden targets (e.g. sidebar elements on mobile
+  // where col-left/col-right cards are display:none).
+  if (!target || target.offsetParent === null || target.getBoundingClientRect().width === 0) {
     tourIdx++;
     runStep();
     return;
