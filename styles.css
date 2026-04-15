@@ -190,7 +190,7 @@ a { color: inherit; text-decoration: none; }
 /* ================= LAYOUT ================= */
 .layout {
   max-width: 1200px;
-  margin: 16px auto;
+  margin: 24px auto;
   padding: 0 16px;
   display: grid;
   grid-template-columns: 240px 1fr 320px;
@@ -198,7 +198,7 @@ a { color: inherit; text-decoration: none; }
   align-items: start;
 }
 .col-left, .col-right { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 72px; }
-.col-center { display: flex; flex-direction: column; gap: 12px; }
+.col-center { display: flex; flex-direction: column; gap: 16px; }
 
 /* ================= CARD ================= */
 .card {
@@ -817,24 +817,6 @@ a { color: inherit; text-decoration: none; }
   .messages-wrap { grid-template-columns: 1fr; height: auto; }
   .msg-list { max-height: 160px; border-right: none; border-bottom: 1px solid var(--border); }
   .msg-bubbles { min-height: 240px; }
-
-  /* Demo bar — collapse to a tidy two-row layout */
-  .demo-bar {
-    flex-wrap: wrap;
-    padding: 8px 10px;
-    gap: 8px;
-  }
-  .demo-btn { padding: 6px 10px; font-size: 11px; }
-  .demo-progress { order: 10; flex-basis: 100%; max-width: none; margin-top: 2px; }
-  .demo-step {
-    order: 11;
-    flex-basis: 100%;
-    font-size: 11px;
-    line-height: 1.2;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 
   /* Tour caption must never clip offscreen on narrow devices */
   .spotlight-caption {
